@@ -13,6 +13,8 @@ namespace LTQLSinhVien.Models
         public virtual DbSet<Khoa> Khoas { get; set; }
         public virtual DbSet<Lop> Lops { get; set; }
         public virtual DbSet<MonHoc> MonHocs { get; set; }
+        public object TenSV { get; internal set; }
+
         public DBConnect()
             : base("name=DBConnect")
         {

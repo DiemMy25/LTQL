@@ -52,6 +52,12 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -128,15 +134,49 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\DiemThisController.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DiemThisController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GiangViensController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KhoasController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LopsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MonHocsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SinhViensController.cs" />
+    <Compile Include="Areas\Teach\TeachAreaRegistration.cs" />
+    <Compile Include="Areas\User\Controllers\DiemThisController.cs" />
+    <Compile Include="Areas\User\Controllers\HomeController.cs" />
+    <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\SinhViensController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011191018285_add_table.cs" />
-    <Compile Include="Migrations\202011191018285_add_table.Designer.cs">
-      <DependentUpon>202011191018285_add_table.cs</DependentUpon>
+    <Compile Include="Migrations\202011270248278_Create_table.cs" />
+    <Compile Include="Migrations\202011270248278_Create_table.Designer.cs">
+      <DependentUpon>202011270248278_Create_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012031522068_update_table_SinhVien.cs" />
+    <Compile Include="Migrations\202012031522068_update_table_SinhVien.Designer.cs">
+      <DependentUpon>202012031522068_update_table_SinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012040345049_abc.cs" />
+    <Compile Include="Migrations\202012040345049_abc.Designer.cs">
+      <DependentUpon>202012040345049_abc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012040406317_addf.cs" />
+    <Compile Include="Migrations\202012040406317_addf.Designer.cs">
+      <DependentUpon>202012040406317_addf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012151631247_add_role-column.cs" />
+    <Compile Include="Migrations\202012151631247_add_role-column.Designer.cs">
+      <DependentUpon>202012151631247_add_role-column.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012171506567_add_role_column.cs" />
+    <Compile Include="Migrations\202012171506567_add_role_column.Designer.cs">
+      <DependentUpon>202012171506567_add_role_column.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012171652528_update_table_GiangVien.cs" />
+    <Compile Include="Migrations\202012171652528_update_table_GiangVien.Designer.cs">
+      <DependentUpon>202012171652528_update_table_GiangVien.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DBConnect.cs" />
@@ -146,6 +186,7 @@
     <Compile Include="Models\Lop.cs" />
     <Compile Include="Models\MonHoc.cs" />
     <Compile Include="Models\SinhVien.cs" />
+    <Compile Include="Models\ViewModule\ViewModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -153,12 +194,55 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SinhViens\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SinhViens\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\SinhViens\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\SinhViens\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SinhViens\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DiemThis\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DiemThis\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DiemThis\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DiemThis\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DiemThis\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Khoas\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Khoas\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Khoas\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Khoas\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Khoas\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Lops\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Lops\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Lops\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Lops\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Lops\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\MonHocs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\MonHocs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\MonHocs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\MonHocs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\MonHocs\Index.cshtml" />
+    <Content Include="Areas\User\Views\web.config" />
+    <Content Include="Areas\User\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\User\Views\Home\Index.cshtml" />
+    <Content Include="Areas\User\Views\DiemThis\Create.cshtml" />
+    <Content Include="Areas\User\Views\DiemThis\Delete.cshtml" />
+    <Content Include="Areas\User\Views\DiemThis\Details.cshtml" />
+    <Content Include="Areas\User\Views\DiemThis\Edit.cshtml" />
+    <Content Include="Areas\User\Views\DiemThis\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\GiangViens\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\GiangViens\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\GiangViens\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\GiangViens\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\GiangViens\Index.cshtml" />
+    <Content Include="Areas\Teach\Views\web.config" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -184,19 +268,18 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\SinhViens\Create.cshtml" />
-    <Content Include="Views\SinhViens\Delete.cshtml" />
-    <Content Include="Views\SinhViens\Details.cshtml" />
-    <Content Include="Views\SinhViens\Edit.cshtml" />
-    <Content Include="Views\SinhViens\Index.cshtml" />
-    <Content Include="Views\DiemThis\Create.cshtml" />
-    <Content Include="Views\DiemThis\Delete.cshtml" />
-    <Content Include="Views\DiemThis\Details.cshtml" />
-    <Content Include="Views\DiemThis\Edit.cshtml" />
-    <Content Include="Views\DiemThis\Index.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\DemoLinq.cshtml" />
+    <Content Include="Views\Home\Pagelist.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Teach\Controllers\" />
+    <Folder Include="Areas\Teach\Data\" />
+    <Folder Include="Areas\Teach\Views\Shared\" />
+    <Folder Include="Areas\User\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -212,8 +295,26 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011191018285_add_table.resx">
-      <DependentUpon>202011191018285_add_table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011270248278_Create_table.resx">
+      <DependentUpon>202011270248278_Create_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012031522068_update_table_SinhVien.resx">
+      <DependentUpon>202012031522068_update_table_SinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012040345049_abc.resx">
+      <DependentUpon>202012040345049_abc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012040406317_addf.resx">
+      <DependentUpon>202012040406317_addf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012151631247_add_role-column.resx">
+      <DependentUpon>202012151631247_add_role-column.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012171506567_add_role_column.resx">
+      <DependentUpon>202012171506567_add_role_column.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012171652528_update_table_GiangVien.resx">
+      <DependentUpon>202012171652528_update_table_GiangVien.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

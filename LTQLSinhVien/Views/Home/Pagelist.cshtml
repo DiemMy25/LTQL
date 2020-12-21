@@ -1,0 +1,53 @@
+﻿
+    @model PagedList.IPagedList <LTQLSinhVien.Models.SinhVien >
+    @using PagedList.Mvc;
+    @{
+        ViewBag.Title = "Pagelist";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2>Pagelist</h2>
+
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                TenSV
+            </th>
+           
+            <th>
+                email
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenSV)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MaSV }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MaSV }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MaSV })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <!--Them ma phan trang-->
+    <br />
+    Trang @(Model.PageCount<Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Pagelist", "Home", new { page }) )
+    <!--Ket thuc-->

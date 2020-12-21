@@ -15,7 +15,7 @@ namespace LTQLSinhVien.Models
         public string TenMonHoc { get; set; }
         [Required, MaxLength(20)]
         public string SoTC { get; set; }
-        public DiemThi DiemThi { get; set; }
+        public virtual DiemThi DiemThi { get; set; }
 
     }
 }

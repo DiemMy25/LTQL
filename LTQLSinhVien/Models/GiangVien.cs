@@ -17,7 +17,12 @@ namespace LTQLSinhVien.Models
         public string MaKhoa { get; set; }
         [Required, MaxLength(20)]
         public string MaLop { get; set; }
-        public Khoa Khoa { get; set; }
+        public string role { get; set; }
+        [Required, EmailAddress]
+        public string email { get; set; }
+        [Required]
+        public string password { get; set; }
+        public virtual Khoa Khoa { get; set; }
 
     }
 }

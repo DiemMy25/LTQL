@@ -20,12 +20,22 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Sinh viên", "Index", "Sinhviens")</li>
-                    <li>@Html.ActionLink("Điểm thi", "Index", "DiemThis")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    
+                    @if (Session["idSinhVien"] == null)
+                    {
 
+                    <li>@Html.ActionLink("Đăng Kí", "Register", "Home")</li>
+                    <li>@Html.ActionLink("Đăng Nhập", "Login", "Home")</li>
+                    }
+                    else
+                    {
+                <li class="text-white">
+                    <a class="nav-link" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: white; font-size: 23px">Xin Chào: @Session["tenSV"]</a>
+                </li>
+                        <li>
+                            @Html.ActionLink("Đăng Xuất", "Logout", "Home")
+                        </li>
+                    }
                 </ul>
             </div>
         </div>

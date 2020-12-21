@@ -10,16 +10,16 @@ namespace LTQLSinhVien.Models
     public class DiemThi
     {
         [Key]
-        [Required, MaxLength(20)]
-        public string MaSV { get; set; }
-        [Required, MaxLength(20)]
+        public int ID { get; set; }
         public string MaMH { get; set; }
         [Required, MaxLength(30)]
         public string KetQua { get; set; }
         public int LanThi { get; set; }
+        [Required, MaxLength(20)]
+        public string MaSV { get; set; }
         [ForeignKey("MaSV")]
-        public SinhVien SinhVien { get; set; }
-        public ICollection<MonHoc> MonHocs { get; set; }
+        public virtual SinhVien SinhVien { get; set; }
+        public virtual ICollection<MonHoc> MonHocs { get; set; }
 
     }
 }

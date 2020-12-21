@@ -13,8 +13,8 @@ namespace LTQLSinhVien.Models
         public string MaKhoa { get; set; }
         [Required, MaxLength(20)]
         public string TenKhoa { get; set; }
-        public Lop Lop { get; set; }
-        public ICollection<GiangVien> GiangViens { get; set; }
+        public virtual Lop Lop { get; set; }
+        public virtual ICollection<GiangVien> GiangViens { get; set; }
 
     }
 }

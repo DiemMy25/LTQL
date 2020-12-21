@@ -1,0 +1,63 @@
+﻿@model LTQLSinhVien.Models.SinhVien
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Register</h2>
+<div class="container">
+    <div class="col-6">
+        <h1> Đăng kí tài khoản </h1>
+        @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div>
+                @Html.LabelFor(sv => sv.TenSV, "Họ tên:")
+                @Html.TextBoxFor(sv => sv.TenSV, new { @placeholder = "Nhập họ tên" })
+            </div>
+            <div>
+                @Html.LabelFor(sv => sv.MaSV, "Mã số:")
+                @Html.TextBoxFor(sv => sv.MaSV, new { @placeholder = "Nhập mã sinh viên " })
+            </div>
+            <div>
+                @Html.LabelFor(sv => sv.GioiTinh, "Giới tính:")
+                @Html.TextBoxFor(sv => sv.GioiTinh, new { @placeholder = "Nhập giới tính " })
+            </div>
+            <div>
+                @Html.LabelFor(sv => sv.NgaySinh, "Ngày sinh: ")
+                @Html.TextBoxFor(sv => sv.NgaySinh, new { @placeholder = "Nhập ngày sinh " })
+            </div>
+            <div>
+                @Html.LabelFor(sv => sv.MaLop, "Mã lớp:")
+                @Html.TextBoxFor(sv => sv.MaLop, new { @placeholder = "Nhập mã lớp " })
+            </div>
+            <div>
+                @Html.LabelFor(sv => sv.MaKhoa, "Mã khoa:")
+                @Html.TextBoxFor(sv => sv.MaKhoa, new { @placeholder = "Nhập mã khoa " })
+            </div>
+            <div>
+                @Html.LabelFor(sv => sv.SDT, "Số Điện Thoại: ")
+                @Html.TextBoxFor(sv => sv.SDT, new { @placeholder = "Nhập số Điện Thoại " })
+            </div>
+            <div>
+                @Html.LabelFor(sv => sv.DiaChi, "Địa chỉ: ")
+                @Html.TextBoxFor(sv => sv.DiaChi, new { @placeholder = "Nhập đại chỉ " })
+            </div>
+            <div>
+                @Html.LabelFor(sv => sv.email, "Email: ")
+                @Html.TextBoxFor(sv => sv.email, new { @placeholder = "Nhập email " })
+            </div>
+            <div>
+                @Html.LabelFor(sv => sv.password,"Mật khẩu: ")
+                @Html.TextBoxFor(sv => sv.password, new { @placeholder = "Nhập mật khẩu" })
+            </div>
+            <div>
+                @Html.LabelFor(sv => sv.confirm_password, "Xác nhận mật khẩu: ")
+                @Html.TextBoxFor(sv => sv.confirm_password, new { @placeholder = "Xác nhận mật khẩu" })
+            </div>
+            <input type="submit" value="Đăng ký" />
+        }
+    </div>
+
+</div>
+

@@ -15,8 +15,8 @@ namespace LTQLSinhVien.Models
         public string TenLop { get; set; }
         [Required, MaxLength(20)]
         public string MaKhoa { get; set; }
-        public SinhVien SinhVien { get; set; }
-        public ICollection<Khoa> Khoas { get; set; }
+        public virtual SinhVien SinhVien { get; set; }
+        public virtual ICollection<Khoa> Khoas { get; set; }
 
     }
 }
